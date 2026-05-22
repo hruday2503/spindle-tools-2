@@ -478,6 +478,7 @@ export default function ToolsPage() {
               </div>
             )}
 
+            <div style={{ display:"flex", gap:10, alignItems:"center" }}>
             <button onClick={handleJ2e} disabled={!j2eFile||j2eLoading} style={{
               display:"flex", alignItems:"center", gap:8,
               background:j2eFile&&!j2eLoading?"linear-gradient(135deg,#a78bfa,#7c3aed)":"rgba(255,255,255,0.05)",
@@ -494,6 +495,13 @@ export default function ToolsPage() {
                 : <><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 17H7A5 5 0 017 7h2M15 7h2a5 5 0 010 10h-2M8 12h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg> Convert JSON → Excel Report</>
               }
             </button>
+            {/* RESET */}
+            {j2eFile && !j2eLoading && (
+                <button onClick={()=>{setJ2eFile(null);setJ2eError(null);}} style={{ background:"none", border:"1px solid rgba(255,255,255,0.09)", borderRadius:8, padding:"10px 16px", cursor:"pointer", color:"#5a4870", fontSize:12, fontFamily:"'Space Grotesk',sans-serif", transition:"color 0.2s" }}
+                  onMouseEnter={e=>e.currentTarget.style.color="#c4b5d4"}
+                  onMouseLeave={e=>e.currentTarget.style.color="#5a4870"}>Reset</button>
+              )}
+            </div>
             <p style={{ fontSize:11, color:"#4a3a60", marginTop:10, fontFamily:"'Exo 2',sans-serif" }}>
 
             </p>
